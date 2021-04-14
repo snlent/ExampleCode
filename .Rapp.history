@@ -1,0 +1,255 @@
+lineval=-1*log10(0.05/nrow(traitdf))
+traitdf<-fi
+lineval=-1*log10(0.05/nrow(traitdf))
+lineval
+0.05/nrow(traitdf)
+nrow(fi[fi$pval_0<1.143694e-06 & fi$n.sample.alt>1,])
+0.05/sum(fi$n.sample.alt>1)
+0.05/sum(fg$n.sample.alt>1)
+nrow(fi[fi$pval_0<1.242823e-06 & fi$n.sample.alt>1,])
+nrow(fg[fg$pval_0<1.24088e-06 & fg$n.sample.alt>1,])
+fi[fi$pval_0<1.242823e-06 & fi$n.sample.alt>1,]
+fg[fg$pval_0<1.24088e-06 & fg$n.sample.alt>1,]
+fi[fi$chr==8 & fi$start>=90751250 & fi$stop<=90782163,]
+0.05/7.041588e-11
+2100-1150+504*2+900*3
+library(sas7bdat)
+gdm<-read.sas7bdat('/Users/lent/Downloads/sl_gdm_022316.sas7bdat')
+head(gdm)
+dim(gdm)
+sum(is.na(gdm$bmi_mom_prepreg_d))
+ga<-read.sas7bdat('/Users/lent/Downloads/ga_031214.sas7bdat')
+dim(ga)
+load("/Users/lent/Downloads/pDat.RData")
+head(pDat)
+pDat<-pDat[pDat$filter.gender==T & pDat$filter.geno==T & pDat$repUse==T & pDat$lowQual==T,]
+pDat<-pDat[pDat$filter.gender==T & pDat$filter.geno==T & pDat$repUse==T & pDat$lowQual==T & pDat$COLLECTION=='Proband Delivery',]
+head(pDat)
+head(gdm)
+class(gdm$alias)
+class(pDat$alias)
+class(gdm$aid)
+gdm$aid<-as.character(gdm$aid)
+gdm<-gdm[gdm$aid %in% pDat$alias,]
+dim(gdm)
+gdm<-gdm[gdm$aid %in% pDat$alias & gdm$t1diab_mom_epi_epia_d==0 & gdm$t2diab_mom_epi_epia_d==0 & gdm$gestage_wks_deliv_d>=34 & gdm$cracen==4,]
+dim(gdm)
+gdm<-gdm[gdm$aid %in% pDat$alias & gdm$t1diab_mom_epi_epia_d==0 & gdm$t2diab_mom_epi_epia_d==0 & gdm$gestage_wks_deliv_d>=34 & gdm$cracen==4 & gdm$obgct_result!='NaN',]
+dim(gdm)
+table(gdm$gdmstat_4cat_d)
+gdm<-gdm[gdm$aid %in% pDat$alias & gdm$t1diab_mom_epi_epia_d==0 & gdm$t2diab_mom_epi_epia_d==0 & gdm$gestage_wks_deliv_d>=34 & gdm$cracen==4 & gdm$gdmstat_4cat_d!='' & gdm$bmi_mom_prepreg_d>=18.5,]
+head(gdm)
+dim(gdm)
+dim(gdm[complete.cases(gdm)])
+dim(gdm[complete.cases(gdm)],)
+dim(gdm[complete.cases(gdm),])
+sum(is.na(gdm$bmi_mom_prepreg_d))
+gdm[is.na(gdm$bmi_mom_prepreg_d),]
+dim(gdm)
+sum(is.na(gdm$female_d))
+gdm<-gdm[complete.cases(gdm),]
+head(gdm)
+sum(is.na(gdm$bmi_mom_prepreg_d))
+write.table(gdm$aid,file='/Users/lent/Documents/OGCT_IDs.txt',row.names=F,col.names=T,quote=F,sep='\t')
+write.table(gdm[,'aid'],file='/Users/lent/Documents/OGCT_IDs.txt',row.names=F,col.names=T,quote=F,sep='\t')
+write.table(data.frame(gdm[,'aid']),file='/Users/lent/Documents/OGCT_IDs.txt',row.names=F,col.names=T,quote=F,sep='\t')
+write.table(data.frame(gdm[,'aid']),file='/Users/lent/Documents/OGCT_IDs.txt',row.names=F,col.names=F,quote=F,sep='\t')
+??describe
+library(Hmisc)
+gdm<-read.sas7bdat('/Users/lent/Downloads/sl_gdm_022316.sas7bdat')
+gdm<-gdm[gdm$aid %in% pDat$alias & gdm$t1diab_mom_epi_epia_d==0 & gdm$t2diab_mom_epi_epia_d==0 & gdm$gestage_wks_deliv_d>=34 & gdm$cracen==4 & gdm$gdmstat_4cat_d!='' & gdm$bmi_mom_prepreg_d>=18.5,]
+dim(gdm)
+head(gdm)
+gdm[!complete.cases(gdm),]
+table(gdm[complete.cases(gdm),'gdmstat_4cat_d'])
+table(gdm[,'gdmstat_4cat_d'])
+gdm<-read.sas7bdat('/Users/lent/Downloads/sl_gdm_022316.sas7bdat')
+gdm[gdm$aid=='124554']
+gdm[gdm$aid=='124554',]
+summary(rnorm(100))
+head(bg)
+head((bg$prob>0.5)*bg$length)
+sum((bg$prob>0.5)*bg$length))
+sum((bg$prob>0.5)*bg$length)
+sum((bg$prob<=0.5)*bg$length)
+sum(bg$length)
+sum(as.numeric(bg$length))
+30982409/2881033286
+64.35*3
+193.05+47.19
+210.45-130.45
+?install.packages
+source('/Users/lent/Documents/research/Multiplot.R')
+?jpeg
+?multiplot
+?objects
+head(fiplot)
+2000*c(1,30,41,56)
+90770000
+90772000
+90773000
+90774000
+90772000-4000
+90772000-2000
+90772000+2000
+90772000-90768000
+dim(t2d)
+head(t2d)
+sum(t2d$num.variants)
+sum(fg$num.variants)
+sum(fi$num.variants)
+ficommon<-fread('/Users/lent/Downloads/EA_lnFINoT2D_adj_by_sex_invn_chr8/EA_lnFINoT2D_adj_by_sex_invn_chr8.epacts',data.table=F)
+head(ficommon)
+ficommon<-ficommon[ficommon$BEG>=90700000 & ficommon$BEG<=90800000,]
+dim(ficommon)
+plot(x=ficommon$BEG,y=-1*log10(ficommon$PVALUE))
+expression('R^2')
+ggplot() + geom_hist(rnorm(100)) + scale_x_continuous(label=expression('R^2'))
+ggplot() + geom_histogram(rnorm(100)) + scale_x_continuous(label=expression('R^2')) + theme_bew
+ggplot() + geom_histogram(aes(x=rnorm(100))) + scale_x_continuous(label=expression('R^2')) + theme_bw
+ggplot() + geom_histogram(aes(x=rnorm(100))) + scale_x_continuous(label=expression('R^2')) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + scale_x_continuous(name=expression('R^2')) + theme_bw()
+manhattan
+?expression
+ggplot() + geom_histogram(aes(x=rnorm(100))) + scale_x_continuous(name=expression(R^{2})) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(R^{2})) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(Corrected haptoglobin \nconcentration (mg mL^{-1})\n)) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(Corrected haptoglobin \nconcentration \(mg mL^{-1}\)\n)) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(Corrected haptoglobin \nconcentration mg mL^{-1}\n)) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(Corrected) + theme_bw()
+))
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(Corrected)) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(Corrected haptoglobin \nconcentration)) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop(Corrected haptoglobin,concentration))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Corrected haptoglobin','concentration (mg mL'^{-1}))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Corrected haptoglobin','concentration (mg mL)'^{-1}))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Corrected haptoglobin','concentration (mg mL)'[450]))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Corrected haptoglobin','concentration (mg mL)'^-1))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Corrected haptoglobin','concentration (mg mL)'^-1 2))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Corrected haptoglobin','concentration (mg mL)'^-1))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Corrected haptoglobin','concentration (mg mL)'^-1[2]))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Corrected haptoglobin','concentration (mg mL)'\n^-1[2]))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Corrected \n haptoglobin','concentration (mg mL)'^-1[2]))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Corrected\nhaptoglobin','concentration (mg mL)'^-1[2]))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression('Corrected haptoglobin\nconcentration (mg mL)'^-1[2])) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Corrected haptoglobin','concentration (mg mL)'\n^-1[2]))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Corrected haptoglobin','concentration (mg mL)'^-1[2]))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression('Corrected haptoglobin\nconcentration (mg mL)'^-1[2])) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression('Corrected haptoglobin\nconcentration (mg mL)'^-1[2],'test')) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Corrected haptoglobin','concentration (mg mL)'^-1[2],'test'))) + theme_bw()
+?atp[]
+?atop
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Corrected haptoglobin','concentration (mg mL)'^hello))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Total circulating IgY','(corrected OD'[450]')'))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Total circulating IgY','(corrected OD'[450]'))) + theme_bw()
+)))
+''''
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Total circulating IgY','(corrected OD'[450]))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Total circulating IgY','(corrected OD'[450]'test'))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(atop('Total circulating IgY',expression('(corrected OD'[450]'test'))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(atop('Total circulating IgY',expression('(corrected OD'[450]))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Total circulating IgY',expression('(corrected OD'[450]))) + theme_bw()
+)
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Total circulating IgY',expression('(corrected OD'[450])))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression()'hi'[5]*'there'[6]^8*'you'[2])) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression()'hi'[5]*'there'[6]^8*'you'[2])) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression('hi'[5]*'there'[6]^8*'you'[2])) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('hi'[5]*'there'[6]^8*,'you'[2]))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('hi'[5],'you'[2]))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression('hi'[5]*'there'[6]^8*'you'[2])) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression('hi'[5]*'there'\n[6]^8*'you'[2])) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression('hi'[5]*'there\n'[6]^8*'you'[2])) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Total circulating IgY',expression('(corrected OD'[450])))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Total circulating IgY','(corrected OD'[450])))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Total circulating IgY','(corrected OD'[450]))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Total circulating IgY',paste0('(corrected OD',[450],')')))) + theme_bw()
+ggplot() + geom_histogram(aes(x=rnorm(100))) + xlab(expression(atop('Total circulating IgY',paste0('(corrected OD','[450]',')')))) + theme_bw()
+2104.36+492.43
+2104.36+492.43+504.46
+2104.36+492.43+504.46-1150*2
+269.11/4
+sum(c(67.28,67.28,67.28,67.28))
+sum(c(67.28,67.28,67.28,67.27))
+deployApp()
+library(shiny)
+setwd('/Users/lent/Documents/projects/trumpchange/')
+list.files()
+setwd('./quizapp/')
+deployApp()
+?deployApp
+library(rsconnect)
+?deployApp
+deployApp()
+deployApp()
+head(bg)
+ggplot(data=bg) + geom_histogram(aes(x=prob)) + geom_vline(xintercept=0.5,col='teal4',size=2) + theme_bw() + scale_x_continuous(name='GenoSkyline score')
+ggplot(data=bg) + geom_histogram(aes(x=prob)) + geom_vline(xintercept=0.5,size=2,lty=2) + theme_bw() + scale_x_continuous(name='GenoSkylineScore')
+ggplot(data=bg) + geom_histogram(aes(x=prob)) + geom_vline(xintercept=0.5,size=2,lty=2,col='lightblue4') + theme_bw() + scale_x_continuous(name='GenoSkylineScore')
+ggplot(data=bg) + geom_histogram(aes(x=prob),col='grey80') + geom_vline(xintercept=0.5,size=2,lty=2,col='lightblue4') + theme_bw() + scale_x_continuous(name='GenoSkylineScore')
+ggplot(data=bg) + geom_histogram(aes(x=prob),fill='grey80') + geom_vline(xintercept=0.5,size=2,lty=2,col='lightblue4') + theme_bw() + scale_x_continuous(name='GenoSkylineScore')
+ggplot(data=bg) + geom_histogram(aes(x=prob),fill='grey60') + geom_vline(xintercept=0.5,size=2,lty=2,col='lightblue4') + theme_bw() + scale_x_continuous(name='GenoSkylineScore')
+ggplot(data=bg) + geom_histogram(aes(x=prob),fill='grey60') + geom_vline(xintercept=0.5,size=2,lty=2,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkylineScore')
+ggplot(data=bg) + geom_histogram(aes(x=prob),fill='grey60') + geom_vline(xintercept=0.5,size=2,lty=3,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkylineScore')
+ggplot(data=bg) + geom_histogram(aes(x=prob),fill='grey60') + geom_vline(xintercept=0.5,size=2,lty=6,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkylineScore')
+ggplot(data=bg) + geom_histogram(aes(x=prob),fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=4,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkylineScore')
+ggplot(data=bg) + geom_histogram(aes(x=prob),fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=5,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkylineScore')
+ggplot(data=bg) + geom_histogram(aes(x=prob),fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=5,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkyline Score') + scale_y_continuous(name='Count')
+ggplot(data=bg,x=prob) + geom_histogram(aes(y = (..count..)/sum(..count..))),fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=5,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkyline Score') + scale_y_continuous(name='Frequency',labels = scales::percent)
+ggplot(data=bg,x=prob) + geom_histogram(aes(y = (..count..)/sum(..count..)),fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=5,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkyline Score') + scale_y_continuous(name='Frequency',labels = scales::percent)
+ggplot(data=bg,aes(x=prob)) + geom_histogram(aes(y = (..count..)/sum(..count..)),fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=5,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkyline Score') + scale_y_continuous(name='Frequency',labels = scales::percent)
+head(bg)
+length(unique(bg$prob))
+aggregate(length~prob,sum)
+aggregate(length~prob,sum,data=bg)
+summarized<-aggregate(length~prob,sum,data=bg)
+summarized
+sumnum<-function(x) {return(sum(as.numeric(x)))}
+summarized<-aggregate(length~prob,sumnum,data=bg)
+summarized
+ggplot(data=summarized) + geom_histogram(aes(x=prob,y=length,stat='identity'),fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=5,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkyline Score') + scale_y_continuous(name='Frequency',labels = scales::percent)
+ggplot(data=summarized) + geom_histogram(aes(x=prob,y=length),stat='identity',fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=5,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkyline Score') + scale_y_continuous(name='Frequency',labels = scales::percent)
+ggplot(data=summarized) + geom_histogram(aes(x=prob,y=length),stat='identity',fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=5,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkyline Score')
+head(summarized)
+ggplot(data=summarized) + geom_bar(aes(x=prob,y=length),fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=5,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkyline Score')
+ggplot(data=summarized) + geom_bar(aes(x=prob,y=length),stat='identity',fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=5,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkyline Score')
+head(summarized$prob)
+ggplot(data=summarized,aes(x=prob,y=length)) + geom_bar(stat='identity',fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=5,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkyline Score')
+ggplot() + geom_point(data=summarized,aes(x=prob,y-length))
+ggplot() + geom_point(data=summarized,aes(x=prob,y=length))
+ggplot() + geom_bar(data=summarized,aes(x=prob,y=length))
+ggplot() + geom_bar(data=summarized,aes(x=prob,y=length),stat='identity')
+ggplot() + geom_bar(stat='identity',data=summarized,aes(x=prob,y=length))
+class(summarized)
+summarized$freq<-summarized$length/sum(summarized$length)
+head(summarized)
+ggplot() + geom_bar(aes(x=prob,y=freq),stat='identity')
+ggplot() + geom_bar(data=summarized,aes(x=prob,y=freq),stat='identity')
+ggplot() + geom_bar(data=summarized,aes(x=freq))
+ggplot() + geom_histogram(data=summarized,aes(x=freq))
+ggplot(data=summarized,aes(x=prob,y=freq)) + geom_bar(stat='identity')
+ggplot(data=summarized,aes(x=prob,y=freq)) + geom_bar(stat="identity")
+df <- data.frame(dose=c("D0.5", "D1", "D2"),#
+                len=c(4.2, 10, 29.5))#
+head(df)
+p<-ggplot(data=df, aes(x=dose, y=len)) +#
+  geom_bar(stat="identity")#
+p
+ggplot(data=df, aes(x=dose, y=len)) +#
++   geom_bar(stat="identity")
+ggplot(data=df, aes(x=dose, y=len)) +  geom_bar(stat="identity")
+str(df)
+str(summarized)
+ggplot(data=summarized,aes(x=factor(prob),y=freq)) + geom_bar(stat="identity")
+ggplot(data=summarized,aes(x=prob,y=freq)) + geom_bar(stat="identity")
+ggplot(data=summarized,aes(x=as.numeric(prob),y=freq)) + geom_bar(stat="identity")
+ggplot(data=summarized,aes(x=factor(prob),y=freq)) + geom_bar(stat="identity")
+ggplot(data=summarized) + geom_bar(aes(x=factor(prob),y=length),stat='identity',fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=5,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkyline Score')
+ggplot(data=summarized) + geom_bar(aes(x=factor(prob),y=length),stat='identity',fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=5,col='lightblue3') + theme_bw() + scale_x_discrete(name='GenoSkyline Score')
+ggplot(data=summarized,aes(x=prob,y=freq)) + geom_bar(stat="identity",position=position_dodge())
+ggplot(data=summarized,aes(x=prob,y=freq)) + geom_histogram(stat="identity",position=position_dodge())
+ggplot(data=summarized) + geom_bar(aes(prob),stat='identity',fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=5,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkyline Score')
+ggplot(data=summarized) + geom_bar(aes(prob),fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=5,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkyline Score')
+ggplot(data=summarized,aes(prob)) + geom_bar(fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=5,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkyline Score')
+head(summarized$prob)
+ggplot(aes(summarized$prob)) + geom_bar(fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=5,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkyline Score')
+ggplot(aes(rnorm(100))) + geom_bar(fill='grey60') + geom_vline(xintercept=0.5,size=1.5,lty=5,col='lightblue3') + theme_bw() + scale_x_continuous(name='GenoSkyline Score')
